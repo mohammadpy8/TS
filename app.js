@@ -146,3 +146,10 @@ var looger = function () {
     return undefined;
 };
 /////////////////////////////////////////
+var sumation2 = function (num1, num2) {
+    return num1 + num2;
+};
+var finc;
+finc = sumation2;
+finc = 10; ///////error///
+////////////////////////////////////////

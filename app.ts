@@ -225,4 +225,20 @@ const looger = (): undefined => {
 
 /////////////////////////////////////////
 
+const sumation2 = (num1: number, num2: number) :number => {
+    return num1 + num2
+}
+
+let finc : (num1: number, num2: number) => number  ;
+
+finc = sumation2;
+
+finc = 10 ///////error///
+
+////////////////////////////////////////
+
+
+
+
+
 
