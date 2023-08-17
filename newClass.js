@@ -3,6 +3,7 @@ let ali;
 ali = {
     name: "ali",
     email: "ksfjhea",
+    age: 12,
     login(username) {
         console.log(username);
         return true;
