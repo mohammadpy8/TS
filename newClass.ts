@@ -1,3 +1,9 @@
+type UserType = {
+    name: string, 
+    email: string,
+
+}
+
 interface User {
     name: string;
     email: string;
@@ -6,13 +12,27 @@ interface User {
 
     login:(username: string ) =>  boolean, 
 
+};
+////error
+type UserType = {
+
 }
 
-let ali: User;
+interface User {
+    city?: string
+}
+
+interface TeacherInterface extends User {
+    score: number,
+    subject: [],
+}
+
+let ali: UserType;
 ali = {
     name: "ali",
     email: "ksfjhea", 
-    age:12,
+    age: 12,
+    city: "",
     login(username: string) {
         console.log(username);
         return true
@@ -20,7 +40,7 @@ ali = {
     }
 }
 
-const isRegister = (user: User) => {
+const isRegister = (user: UserType) => {
     if (user.name === "amin") {
         return true;
     } else {
