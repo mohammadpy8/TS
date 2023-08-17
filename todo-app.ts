@@ -58,3 +58,10 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 addTodo.addEventListener("click", (event) => handleSubmit(event));
+
+clearTodo.addEventListener("click", () => {
+    todoList.innerHTML = "";
+    todos = [];
+    saveTodosInLocalStorage();
+
+});
