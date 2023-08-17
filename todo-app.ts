@@ -7,7 +7,10 @@ interface Todo {
   id: string;
   title: string;
   isComplte: boolean;
+  //   todos: string | number | [];
 }
+
+const todos: Todo[] = JSON.parse(localStorage.getItem("todos") || "[]");
 
 const handleSubmit = (event: Event) => {
   event.preventDefault();
@@ -16,13 +19,14 @@ const handleSubmit = (event: Event) => {
     id: crypto.randomUUID(),
     title: todoValue.value,
     isComplte: false,
-    };
-    
-    addTodoToDom(newTodo);
+  };
 
-    todoValue.value = ""
-    todoValue.focus();
+  addTodoToDom(newTodo);
+  todos.push(newTodo);
+  saveTodosInLocalStorage();
 
+  todoValue.value = "";
+  todoValue.focus();
 };
 
 const addTodoToDom = (todo: Todo) => {
@@ -35,5 +39,15 @@ const addTodoToDom = (todo: Todo) => {
     `
   );
 };
+
+const saveTodosInLocalStorage = () => {
+  localStorage.setItem("todos", JSON.stringify(todos));
+  return true;
+};
+
+window.addEventListener("DOMContentLoaded", () => {
+    todoList.innerHTML = "";
+  todos.forEach((todo) => addTodoToDom(todo));
+});
 
 addTodo.addEventListener("click", (event) => handleSubmit(event));
