@@ -10,7 +10,7 @@ interface Todo {
   //   todos: string | number | [];
 }
 
-const todos: Todo[] = JSON.parse(localStorage.getItem("todos") || "[]");
+let todos: Todo[] = JSON.parse(localStorage.getItem("todos") || "[]");
 
 const handleSubmit = (event: Event) => {
   event.preventDefault();
@@ -33,7 +33,7 @@ const addTodoToDom = (todo: Todo) => {
   todoList.insertAdjacentHTML(
     "beforeend",
     `
-    <li>
+    <li onclick="removeTodo(${todo.id})">
         ${todo.title} <span></span>
     </li>
     `
@@ -44,6 +44,13 @@ const saveTodosInLocalStorage = () => {
   localStorage.setItem("todos", JSON.stringify(todos));
   return true;
 };
+
+const removeTodo = (todoId: string) => {
+    todos = todos.filter(todo => todo.id !== todoId);
+    saveTodosInLocalStorage();
+    todoList.innerHTML = "";
+    todos.forEach((todo) => addTodoToDom(todo));
+}
 
 window.addEventListener("DOMContentLoaded", () => {
     todoList.innerHTML = "";
