@@ -74,3 +74,34 @@ const registerForms: Erros10 = {
     username: 10,
     password: 123456,
 };
+/////////////////////////////
+
+namespace IranKhodro {
+    export let car = "pars";
+
+    export class Body {
+        constructor(
+            public color: string,
+            public name: string,
+        ) {
+            this.name = name;
+            this.color = color;
+        }
+        make() {
+            console.log("success");
+        };
+    } 
+};
+
+namespace saipa {
+    export let car = "pride";
+};
+
+const pars111 = new IranKhodro.Body("mm", "red");
+
+pars111.make();
+
+console.log(IranKhodro.car);
+console.log(saipa.car);
+
+
