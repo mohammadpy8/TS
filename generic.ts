@@ -46,3 +46,31 @@ const reesult = addto("mohammad", "amin") as string;
 reesult.split("");
 
 console.log(reesult);
+
+//////////////////////////////////
+
+interface Errors {
+    name: string;
+    email: string,
+    password: string;
+};
+
+interface Erros10 {
+    type: string;
+    [prop: string] : string| number
+};
+
+const LoginFormError1: Erros10 = {
+    type: "",
+    name: "name ",
+    email: "email",
+    password: "",
+    adders: "",
+    city: "",
+};
+
+const registerForms: Erros10 = {
+    type: "login",
+    username: 10,
+    password: 123456,
+};
