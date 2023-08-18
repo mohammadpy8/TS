@@ -56,7 +56,7 @@ showProp(amin);
 
 type Combine = string | number;
 
-const add = (param1: Combine, param2: Combine): Combine => {
+const add = (param1: Combine, param2: Combine) => {
     
     if (typeof param1 === "string" && typeof param2 === "string") {
         return param1.toString() + param2.toString();
@@ -65,4 +65,49 @@ const add = (param1: Combine, param2: Combine): Combine => {
     }
 };
 
-    
+////////////////////////////
+
+class CarName {
+
+    constructor(public name: string, public color: string,public model: number) {
+        this.name = name;
+        this.color = color;
+        this.model = model;
+    };
+
+    driven(speed : number) {
+        console.log(`${this.name} driven ${speed}`);
+        
+    }
+
+};
+
+class Truck extends CarName {
+    constructor(public name: string, public color: string, public model: number) {
+        super(name, color, model);
+    };
+
+    Load(weight: number) {
+        console.log(`set ${weight}Kg load in ${this.name}`);
+        
+    }
+};
+
+const useCar = (car: CarName | Truck) => {
+    console.log(car.name);
+
+    if (car instanceof Truck) {
+        car.Load(200);
+
+    } else if (car instanceof CarName) {
+        car.driven(140);
+    }
+};
+
+const pride = new CarName("pride", "white", 1400);
+
+const fHash = new Truck("f2", "black", 2022);
+
+useCar(pride);
+useCar(fHash);
+
