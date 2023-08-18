@@ -111,3 +111,5 @@ const fHash = new Truck("f2", "black", 2022);
 useCar(pride);
 useCar(fHash);
 
+/////////////////////////////////////
+
