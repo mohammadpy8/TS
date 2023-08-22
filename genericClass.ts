@@ -70,6 +70,31 @@ let newScores = new MainList();
 newScores.addItems(10);
 newScores.addItems(true); 
 
+interface Result <T> {
+    data: null | T;
+    error: string | null;
+
+};
+
+interface Course {
+    title: string;
+    price: number;
+}
+
+interface Article {
+    title: string;
+}
+
+const fetchData = <T>(url: string): Result<T> => {
+
+    console.log(url);
+
+    return { data: null, error: null };
+
+};
+
+const TsCourse = fetchData<Course>("harchizi");
+
 
 
 
