@@ -68,6 +68,32 @@ function echoTest2<T extends Width>(param : T) {
 
 };
 
+/////////////////////////////
+
+interface Type {
+    length: number
+}
+
+function describe<T extends Type>(param: T): [string, T] {
+
+    let text = "zero items";
+
+    if (param.length) {
+        text = `${param.length} items`;
+    } else {
+        null;
+    }
+
+    return [text, param]
+};
+
+const result500 = describe("mohammad");
+console.log(result500);
+const result1000 = describe([10, 15]);
+console.log(result1000);
+
+
+
 
 
 
