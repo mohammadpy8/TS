@@ -28,4 +28,27 @@ const var2: Type2 = 10; /////not null and undefined////
 
 amir.age = 12; ////Error
 
+type Type3 = Exclude<Type1, Function | Boolean | String>;
+
+type Type4 = Omit<User, "age" | "email">;
+
+type Type5 = "Ali" | "Amin" | "Mohammad";
+
+type Person = {
+    name: string;
+    age: number;
+    email: string;
+};
+
+type RecordType = Record<Type5, Person>;
+
+const Prson550: RecordType = {
+    "Amin": { name: "amin", email: "", age: 10 },
+    "Ali": { name: "ali", age: 25, email: "" },
+    "Mohammad": { name: "mohammad", age: 15, email: "" }
+};
+
+const car10: Type3 = 10; 
+const ali150: Type4 = { username: "ali150" }; 
+
 
