@@ -1,3 +1,9 @@
+function Logger(constructor: Function) {
+    console.log("logger decorator", constructor);
+
+    constructor.prototype.id = crypto.randomUUID();
+};
+
 @Logger
 
 class User {
@@ -11,10 +17,12 @@ class User {
         this.email = email;
     }
 
-    @Change
-
     speak(word: string) {
         console.log(`${this.fisrtname} says ${word}`);
     }
     
 };
+
+const alirrr = new User("", "", "");
+console.log(alirrr);
+ 
