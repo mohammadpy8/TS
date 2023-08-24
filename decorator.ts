@@ -10,7 +10,25 @@ function Logger(param: number) {
 
 };
 
+function insertInDom(value: string) {
+
+    return function (target: Function) {
+
+        console.log(`Targer => ${target}`);
+        
+        const parentElm = document.querySelector("#root")!
+        if (parentElm) {
+            parentElm.innerHTML = value;
+        } else {
+            throw new Error("root Elemnt not found !!");
+        };
+    };
+
+};
+
 @Logger(25)
+
+@insertInDom("<h1>Mohammad :))</h1>")
 
 class User {
     constructor(
@@ -31,4 +49,6 @@ class User {
 
 const alirrr = new User("", "", "");
 console.log(alirrr);
+
+//////////////////////////////////
  
