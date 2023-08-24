@@ -29,6 +29,23 @@ function insertInDom(value: string) {
 @Logger(25)
 
 @insertInDom("<h1>Mohammad :))</h1>")
+    
+function LowerCase(target: any, methodName: string, desciptor: PropertyDescriptor) {
+
+    const mainMethod = desciptor.value;
+    
+    desciptor.value = function (value: string) {
+
+        console.log(this);
+        
+        mainMethod.call(this, value.toLowerCase());
+    };
+
+    console.log(target);
+    console.log(methodName);
+    console.log(desciptor.value);
+
+}
 
 class User {
     constructor(
@@ -41,6 +58,8 @@ class User {
         this.email = email;
     }
 
+    @LowerCase
+
     speak(word: string) {
         console.log(`${this.fisrtname} says ${word}`);
     }
@@ -48,6 +67,7 @@ class User {
 };
 
 const alirrr = new User("", "", "");
+alirrr.speak("Hello TS");
 console.log(alirrr);
 
 //////////////////////////////////
