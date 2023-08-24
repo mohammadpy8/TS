@@ -62,6 +62,10 @@ class User {
 
     speak(word: string) {
         console.log(`${this.fisrtname} says ${word}`);
+    };
+
+    get fullName() {
+        return `${this.fisrtname} ${this.lastname}`;
     }
     
 };
