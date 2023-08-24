@@ -1,10 +1,16 @@
-function Logger(constructor: Function) {
-    console.log("logger decorator", constructor);
+function Logger(param: number) {
 
-    constructor.prototype.id = crypto.randomUUID();
+    return function (constructor: Function) {
+        
+        console.log("logger decorator", constructor);
+    
+        constructor.prototype.id = crypto.randomUUID();
+        constructor.prototype.id = param;
+    };
+
 };
 
-@Logger
+@Logger(25)
 
 class User {
     constructor(
